@@ -9,7 +9,7 @@ def start():
               "province where you live", "precinct number"]
     params = ["first name", "last name"]
     values = rec.populate(params)
-    ig.create_id(values)
+#    ig.create_id(values)
 
     return values
 
