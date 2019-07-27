@@ -9,14 +9,15 @@ def save(values):
         mode = 'a' # append if already exists
     else:
         mode = 'w' # make a new file if not
-        columns = list(values.keys())
-        with open(FILENAME, 'w') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=columns)
-            writer.writeheader()
          
 
     with open(FILENAME, mode) as csvfile:
+        columns = list(values.keys())
         writer = csv.DictWriter(csvfile, fieldnames=columns)
+        
+        if mode == 'w':    
+            writer.writeheader()
+        
         writer.writerow(values)
 
 def retrieve():
